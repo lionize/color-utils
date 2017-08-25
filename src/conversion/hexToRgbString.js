@@ -1,4 +1,4 @@
-import { hexToRgb } from '.'
+import hexToRgb from './hexToRgb'
 
 export default (hex, alpha) => {
   const [r, g, b] = hexToRgb(hex)

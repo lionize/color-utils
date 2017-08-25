@@ -1,4 +1,4 @@
-import { hexToRgbString } from '.'
+import hexToRgbString from './hexToRgbString'
 
 test('converts 6-letter hex to rgb string', () => {
   const hex = '#ff6347'

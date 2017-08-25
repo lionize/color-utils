@@ -1,4 +1,4 @@
-import { hexToRgb } from '.'
+import hexToRgb from './hexToRgb'
 
 describe('hexToRgb', () => {
   test('converts 6-letter hex to rgb', () => {

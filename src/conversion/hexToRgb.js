@@ -1,4 +1,4 @@
-import { hexToInt } from '.'
+import hexToInt from './hexToInt'
 
 export default (hex) => {
   let r, g, b

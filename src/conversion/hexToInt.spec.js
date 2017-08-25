@@ -1,4 +1,4 @@
-import { hexToInt } from '.'
+import hexToInt from './hexToInt'
 
 test('parses 2-letter hex to int', () => {
   const hex = 'FF'
