@@ -1,4 +1,4 @@
-import htmlColors from './color'
+import htmlColors from './html-colors'
 
 const isValid = value => {
   if (typeof value == 'string') {

@@ -8,6 +8,8 @@ describe('isValid', () => {
       })
 
     const valids = [
+      'white',
+      'red',
       '#fff',
       '#ffff',
       '#ffffff',
