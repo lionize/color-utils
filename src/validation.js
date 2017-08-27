@@ -23,6 +23,9 @@ export const isRgbString = value =>
 export const isHslObject = value =>
   typeof value == 'object' && validateHslObject(value)
 
+export const isHslString = value =>
+  typeof value == 'string' && validateHslString(value)
+
 const validateString = value => {
   if (value.indexOf('#') == 0) {
     return validateHex(value)
