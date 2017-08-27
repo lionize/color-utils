@@ -1,4 +1,4 @@
-import { isValid, isHex } from './validation'
+import { isValid, isHex, isRgbObject } from './validation'
 
 describe('isValid', () => {
   describe('valid', () => {
@@ -79,14 +79,18 @@ describe('isValid', () => {
   })
 })
 
-describe('isHex', () => {
-  test('returns true if input is hex string', () => {
-    const hex = '#FFF'
-    expect(isHex(hex)).toBe(true)
-  })
+test('isHex determines if input is hex string', () => {
+  const hex = '#FFF'
+  expect(isHex(hex)).toBe(true)
 
-  test('returns false if input is not hex string', () => {
-    const invalid = 'hello'
-    expect(isHex(invalid)).toBe(false)
-  })
+  const invalid = 'hello'
+  expect(isHex(invalid)).toBe(false)
+})
+
+test('isRgbObject determines if input is rgb object', () => {
+  const rgbObj = { r: 255, g: 255, b: 255 }
+  expect(isRgbObject(rgbObj)).toBe(true)
+
+  const invalid = 'white'
+  expect(isRgbObject(invalid)).toBe(false)
 })
