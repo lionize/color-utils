@@ -1,4 +1,4 @@
-import isValid from './validation'
+import { isValid } from './validation'
 
 const color = input => {
   if (isValid(input)) return new Color(input)
