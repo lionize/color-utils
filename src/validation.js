@@ -20,6 +20,9 @@ export const isRgbObject = value =>
 export const isRgbString = value =>
   typeof value == 'string' && validateRgbString(value)
 
+export const isHslObject = value =>
+  typeof value == 'object' && validateHslObject(value)
+
 const validateString = value => {
   if (value.indexOf('#') == 0) {
     return validateHex(value)

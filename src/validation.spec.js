@@ -1,4 +1,10 @@
-import { isValid, isHex, isRgbObject, isRgbString } from './validation'
+import {
+  isValid,
+  isHex,
+  isRgbObject,
+  isRgbString,
+  isHslObject,
+} from './validation'
 
 describe('isValid', () => {
   describe('valid', () => {
@@ -101,4 +107,12 @@ test('isRgbString determines if input is rgb string', () => {
 
   const invalid = 'hsl(100, 100%, 100%, 0.0)'
   expect(isRgbString(invalid)).toBe(false)
+})
+
+test('isHslObject determines if input is hsl object', () => {
+  const hslObj = { h: 100, s: '100%', l: '100%', a: 1.0 }
+  expect(isHslObject(hslObj)).toBe(true)
+
+  const invalid = { r: 255, g: 255, b: 255 }
+  expect(isHslObject(invalid)).toBe(false)
 })
