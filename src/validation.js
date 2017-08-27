@@ -139,7 +139,7 @@ const validateRgbColorValue = value => value >= 0 && value <= 255
 
 const validateAlphaValue = value => {
   if (value) {
-    return value > 0 && value <= 1
+    return value >= 0 && value <= 1
   }
   return true
 }
