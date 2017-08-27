@@ -17,6 +17,9 @@ export const isHex = value => typeof value == 'string' && validateHex(value)
 export const isRgbObject = value =>
   typeof value == 'object' && validateRgbObject(value)
 
+export const isRgbString = value =>
+  typeof value == 'string' && validateRgbString(value)
+
 const validateString = value => {
   if (value.indexOf('#') == 0) {
     return validateHex(value)
