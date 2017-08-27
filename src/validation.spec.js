@@ -38,4 +38,41 @@ describe('isValid', () => {
 
     valids.forEach(testValid)
   })
+
+  describe('invalid', () => {
+    const testInvalid = input =>
+      test(`finds "${input}" invalid`, () => {
+        expect(isValid(input)).toBe(false)
+      })
+
+    const invalids = [
+      'something',
+      'some other thing',
+      '#ff',
+      '#fffff',
+      '#ffffffffff',
+      'rgb(300, 0, 0)',
+      'rgb(0, 300, 0)',
+      'rgb(0, 0, 300, no)',
+      'rgb(0, 0, 300, 5)',
+      'rgba(300, 0, 0)',
+      { r: 300, g: 0, b: 0 },
+      { r: 0, g: 300, b: 0 },
+      { r: 0, g: 0, b: 300 },
+      { r: 0, g: 0, b: 300, a: 5 },
+      'hsl(500, 0%, 0%)',
+      'hsl(0, 150%, 0%)',
+      'hsl(0, 0%, 150%)',
+      'hsl(0, 0%, 0%, no)',
+      'hsl(0, 0%, 0%, 5)',
+      'hsl(0, 0, 0%)',
+      'hsl(0, 0%, 0)',
+      { h: 500, s: '0%', l: '0%' },
+      { h: 0, s: '120%', l: '0%' },
+      { h: 0, s: '0%', l: '120%' },
+      { h: 0, s: '0%', l: '0%', a: 5 },
+    ]
+
+    invalids.forEach(testInvalid)
+  })
 })

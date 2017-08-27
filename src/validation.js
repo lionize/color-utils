@@ -95,6 +95,7 @@ const validateRgbString = value => {
 
   if (match) {
     const [r, g, b, a] = match.slice(1)
+    if (alphaStringWithoutAlpha(value, 'hsla', a)) return false
     return validateRgbValues([r, g, b], a)
   }
   return false
@@ -105,6 +106,7 @@ const validateHslString = value => {
 
   if (match) {
     const [h, s, l, a] = match.slice(1)
+    if (alphaStringWithoutAlpha(value, 'hsla', a)) return false
     return validateHslValues(h, s, l, a)
   }
   return false
@@ -113,6 +115,9 @@ const validateHslString = value => {
 const validateColorName = value => {
   return Object.keys(htmlColors).includes(value.toLowerCase())
 }
+
+const alphaStringWithoutAlpha = (value, string, a) =>
+  value.search(string) !== -1 && !a
 
 const matchRgb = value => {
   const rgbRegex = /rgba*\((\d{1,3}), *(\d{1,3}), *(\d{1,3})(?:, *([0,1]{0,1}(?:\.*\d{1,2})*)){0,1}\)/g
