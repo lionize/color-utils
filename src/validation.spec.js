@@ -1,4 +1,4 @@
-import isValid from './validation'
+import { isValid, isHex } from './validation'
 
 describe('isValid', () => {
   describe('valid', () => {
@@ -76,5 +76,17 @@ describe('isValid', () => {
     ]
 
     invalids.forEach(testInvalid)
+  })
+})
+
+describe('isHex', () => {
+  test('returns true if input is hex string', () => {
+    const hex = '#FFF'
+    expect(isHex(hex)).toBe(true)
+  })
+
+  test('returns false if input is not hex string', () => {
+    const invalid = 'hello'
+    expect(isHex(invalid)).toBe(false)
   })
 })

@@ -1,6 +1,6 @@
 import htmlColors from './html-colors'
 
-const isValid = value => {
+export const isValid = value => {
   if (typeof value == 'string') {
     return validateString(value)
   }
@@ -11,7 +11,8 @@ const isValid = value => {
 
   return false
 }
-export default isValid
+
+export const isHex = value => typeof value == 'string' && validateHex(value)
 
 const validateString = value => {
   if (value.indexOf('#') == 0) {
@@ -26,12 +27,12 @@ const validateObject = value => {
 }
 
 const validateHex = value => {
-  const regex = /^[a-fA-F0-9]+$/
+  const regex = /^#([a-fA-F0-9]+)$/
   const validCounts = [3, 4, 6, 8]
   let match
 
-  if ((match = regex.exec(value.slice(1)))) {
-    return validCounts.includes(match[0].length)
+  if ((match = regex.exec(value))) {
+    return validCounts.includes(match[1].length)
   }
   return false
 }
