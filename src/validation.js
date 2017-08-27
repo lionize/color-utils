@@ -26,14 +26,14 @@ const validateObject = value => {
 }
 
 const validateHex = value => {
-  const regex = /[a-fA-F0-9]/g
+  const regex = /^[a-fA-F0-9]+$/
   const validCounts = [3, 4, 6, 8]
-  let count = 0
   let match
 
-  while ((match = regex.exec(value.slice(1)))) count++
-
-  return validCounts.includes(count)
+  if ((match = regex.exec(value.slice(1)))) {
+    return validCounts.includes(match[0].length)
+  }
+  return false
 }
 
 const validateColorString = value => {
